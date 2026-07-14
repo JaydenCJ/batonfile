@@ -1,0 +1,54 @@
+{
+  "name": "batonfile",
+  "version": "0.1.0",
+  "description": "Packs conversation summary, artifacts, and open tasks into a validated agent handoff bundle. An interchange format with schema and CLI — not a memory database. Zero runtime dependencies, fully offline.",
+  "author": "JaydenCJ",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "batonfile": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "docs/format.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"tests/*.test.mjs\"",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "keywords": [
+    "agent",
+    "handoff",
+    "context",
+    "interchange-format",
+    "schema",
+    "session",
+    "compaction"
+  ],
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaydenCJ/batonfile.git"
+  },
+  "homepage": "https://github.com/JaydenCJ/batonfile#readme",
+  "bugs": {
+    "url": "https://github.com/JaydenCJ/batonfile/issues"
+  }
+}

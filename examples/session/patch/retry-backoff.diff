@@ -1,0 +1,20 @@
+--- a/src/payment/client.ts
++++ b/src/payment/client.ts
+@@ -41,12 +41,16 @@ export class PaymentClient {
+   private async withRetry<T>(op: () => Promise<T>): Promise<T> {
+     let lastError: unknown;
+-    for (let attempt = 0; attempt < 3; attempt++) {
++    const delays = [50, 150, 450];
++    for (let attempt = 0; attempt < delays.length; attempt++) {
+       try {
+         return await op();
+       } catch (e) {
+         lastError = e;
+-        await sleep(50);
++        // Exponential backoff with up to 20% jitter: a fixed delay made
++        // all three attempts land before a slow stub was listening.
++        const jitter = 1 + Math.random() * 0.2;
++        await sleep(delays[attempt] * jitter);
+       }
+     }
+     throw lastError;
