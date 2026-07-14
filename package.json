@@ -2,7 +2,7 @@
   "name": "batonfile",
   "version": "0.1.0",
   "description": "Packs conversation summary, artifacts, and open tasks into a validated agent handoff bundle. An interchange format with schema and CLI — not a memory database. Zero runtime dependencies, fully offline.",
-  "author": "JaydenCJ",
+  "author": "JaydenCJ <aisingioro.kiyon@gmail.com>",
   "license": "MIT",
   "type": "module",
   "bin": {
